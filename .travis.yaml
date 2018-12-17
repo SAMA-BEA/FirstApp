@@ -1,0 +1,10 @@
+sudo : required
+
+services :
+  - docker
+
+before_install:
+  - docker build -t MyAppImage -f Dockerfile.dev .
+
+scripts:
+  - docker run MyAppImage npm run test -- --coverage 
